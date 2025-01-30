@@ -5,7 +5,9 @@ import { useQuery } from '@tanstack/react-query';
 
 export default function Layout({ children }: PropsWithChildren) {
   useEffect(() => {
-    return logger.subscribe((event) => {});
+    return logger.subscribe((event) => {
+      console.log('Host Event Received: ', event.message);
+    });
   }, []);
 
   return (
