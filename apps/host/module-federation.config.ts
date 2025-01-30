@@ -10,7 +10,7 @@ const config: ModuleFederationConfig = {
   filename: 'remoteEntry.js',
   remotes: [
     {
-      products: 'products@http://fake.com/mf-manifest.json',
+      products: 'products@http://localhost:4201/mf-manifest.json',
     },
   ],
   shared: {
@@ -30,7 +30,7 @@ const config: ModuleFederationConfig = {
       singleton: true,
     },
   },
-  runtimePlugins: [resolve(__dirname, './dynamic-remote.ts')],
+  // runtimePlugins: [resolve(__dirname, './dynamic-remote.ts')],
 };
 
 export default config;
