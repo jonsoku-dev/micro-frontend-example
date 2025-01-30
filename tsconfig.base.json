@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@custom-mfe/components": ["packages/components/src/index.ts"],
       "@custom-mfe/logger": ["packages/logger/src/index.ts"],
       "@custom-mfe/store": ["packages/store/src/index.ts"]
     }
