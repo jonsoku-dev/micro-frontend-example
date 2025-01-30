@@ -1,10 +1,13 @@
-import NxWelcome from './nx-welcome';
 import '../styles.css';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import RemoteButton from 'products/RemoteButton';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="custom-mfe" />
+      Hi I'm host
+      <RemoteButton />
     </div>
   );
 }

@@ -15,7 +15,7 @@
         "index": "apps/custom-mfe/src/index.html",
         "main": "apps/custom-mfe/src/main.tsx",
         "tsConfig": "apps/custom-mfe/tsconfig.app.json",
-        "rspackConfig": "apps/custom-mfe/rspack.config.js",
+        "rspackConfig": "apps/custom-mfe/rspack.config.ts",
         "assets": [
           "apps/custom-mfe/src/favicon.ico",
           "apps/custom-mfe/src/assets"
@@ -33,7 +33,7 @@
       }
     },
     "serve": {
-      "executor": "@nx/rspack:dev-server",
+      "executor": "@nx/rspack:module-federation-dev-server",
       "options": {
         "buildTarget": "custom-mfe:build:development"
       },
