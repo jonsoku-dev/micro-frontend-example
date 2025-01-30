@@ -1,10 +1,10 @@
 export default {
-  displayName: 'custom-mfe',
+  displayName: 'host',
   preset: '../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',
     '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nx/react/babel'] }],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/custom-mfe',
+  coverageDirectory: '../../coverage/apps/host',
 };
