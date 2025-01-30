@@ -7,6 +7,10 @@ type ModuleFederationConfig = ConstructorParameters<
 const config: ModuleFederationConfig = {
   name: 'products',
   filename: 'remoteEntry.js',
+  experiments: {
+    federationRuntime: 'hoisted',
+    externalRuntime: true
+},
   exposes: {
     './Types': './src/types.d.ts',
     './ProductsList': './src/components/ProductsList/ProductsList.tsx',

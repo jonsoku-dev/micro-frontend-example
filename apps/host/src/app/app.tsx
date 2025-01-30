@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import { lazy, useEffect } from "react";
 import useRemote from "../hooks/useRemote";
 import styles from './app.module.css';
+// @ts-expect-error
 import type ProductsListType from 'products/ProductsList';
+// @ts-expect-error
 import type useTest from 'products/useTest';
 import { loadRemote } from "@module-federation/runtime";
 
