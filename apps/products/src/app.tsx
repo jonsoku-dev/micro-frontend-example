@@ -1,7 +1,7 @@
-import Button from './components/remote-button';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import './styles.css';
+import ProductsList from './components/ProductsList/ProductsList';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <>
-      <p>이것은 remote component 입니다.</p>
-      <Button />
+      <p>You are running in the remote.</p>
+      <ProductsList />
     </>
   </StrictMode>
 );

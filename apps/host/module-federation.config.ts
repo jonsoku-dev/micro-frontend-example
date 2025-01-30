@@ -7,6 +7,11 @@ type ModuleFederationConfig = ConstructorParameters<
 const config: ModuleFederationConfig = {
   name: 'host',
   filename: 'remoteEntry.js',
+  // remotes: [
+  //   {
+  //     products: 'products@http://localhost:4201/mf-manifest.json',
+  //   },
+  // ],
   shared: ['react', 'react-dom'],
 };
 

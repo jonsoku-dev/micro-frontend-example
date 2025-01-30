@@ -1,17 +1,32 @@
-import useRemote from '../hooks/useRemote';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-import RemoteButtonType from 'products/RemoteButton';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { lazy, useEffect } from "react";
+import useRemote from "../hooks/useRemote";
+import styles from './app.module.css';
+//@ts-expect-error
+import type ProductsListType from 'products/ProductsList';
+//@ts-expect-error
+import type useTest from 'products/useTest';
+import { loadRemote } from "@module-federation/runtime";
 
 export function App() {
-  const RemoteButton = useRemote<typeof RemoteButtonType>({ scope: 'products', module: 'RemoteButton' });
+  const RemoteProductsList = useRemote<typeof ProductsListType>({ scope: 'products', module: 'ProductsList' });
 
-  console.log({ RemoteButton })
+  useEffect(() => {
+    async function doStuff() {
+      const testHookModule = await loadRemote('products/useTest');
+      console.log(testHookModule);
+      //@ts-expect-error
+      const testHook = testHookModule.default as typeof useTest;
+      console.log('Test hook', testHook());
+    }
+
+    doStuff();
+  }, []);
 
   return (
     <div>
-      Hi I'm host
-      <RemoteButton />
+      <p>Hi I'm the host.</p>
+      <RemoteProductsList />
     </div>
   );
 }

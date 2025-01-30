@@ -10,6 +10,8 @@ const config: ModuleFederationConfig = {
   exposes: {
     './Types': './src/types.d.ts',
     './RemoteButton': './src/components/remote-button.tsx',
+    './ProductsList': './src/components/ProductsList/ProductsList.tsx',
+    './useTest': './src/hooks/useTest.ts',
   },
 
   shared: ['react', 'react-dom'],
