@@ -1,1 +1,4 @@
-export default function RemoteButton(): import("react/jsx-runtime").JSX.Element;
+export type Props = {
+    label?: string;
+};
+export default function RemoteButton({ label }: Props): import("react/jsx-runtime").JSX.Element;

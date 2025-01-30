@@ -3,12 +3,15 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve host --devRemotes=products"
+    "start": "nx run-many -t serve -p host,products"
   },
   "private": true,
   "dependencies": {
+    "@module-federation/enhanced": "^0.8.9",
+    "@module-federation/runtime": "^0.8.9",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "react-error-boundary": "5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",

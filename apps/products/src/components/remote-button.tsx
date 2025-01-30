@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './remote-button.module.css';
 
-export default function RemoteButton() {
+export type Props = {
+  label?: string;
+}
+
+export default function RemoteButton({ label }: Props) {
   const [count, setCount] = React.useState(0);
 
   return (
