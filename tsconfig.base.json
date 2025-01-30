@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@custom-mfe/logger": ["packages/logger/src/index.ts"],
+      "@custom-mfe/store": ["packages/store/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

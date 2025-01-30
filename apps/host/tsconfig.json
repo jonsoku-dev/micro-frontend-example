@@ -6,7 +6,9 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "paths": {
-      "*": ["apps/host/@mf-types/*"]
+      "*": ["apps/host/@mf-types/*"],
+      "@custom-mfe/logger": ["packages/logger/src/index.ts"],
+      "@custom-mfe/store": ["packages/store/src/index.ts"]
     }
   },
   "files": [],

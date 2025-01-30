@@ -1,0 +1,9 @@
+{
+  "name": "@custom-mfe/products",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@custom-mfe/logger": "workspace:*"
+  }
+}

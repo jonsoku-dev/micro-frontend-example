@@ -9,11 +9,26 @@ const config: ModuleFederationConfig = {
   filename: 'remoteEntry.js',
   exposes: {
     './Types': './src/types.d.ts',
-    './RemoteButton': './src/components/remote-button.tsx',
     './ProductsList': './src/components/ProductsList/ProductsList.tsx',
-    './useTest': './src/hooks/useTest.ts',
+    './useTest': './src/components/hooks/useTest.ts',
+    './ProductsRouter': './src/components/ProductsRouter.tsx',
   },
-
-  shared: ['react', 'react-dom'],
+  shared: {
+    react: {
+      singleton: true,
+    },
+    'react-dom': {
+      singleton: true,
+    },
+    '@tanstack/react-query': {
+      singleton: true,
+    },
+    '@custom-mfe/store': {
+      singleton: true,
+    },
+    'react-router-dom': {
+      singleton: true,
+    },
+  },
 };
 export default config;
