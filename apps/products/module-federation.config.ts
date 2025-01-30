@@ -1,18 +1,17 @@
-import { ModuleFederationConfig } from '@nx/module-federation';
+import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack';
 
-const sharedLibraries = ['react', 'react-dom'];
+type ModuleFederationConfig = ConstructorParameters<
+  typeof ModuleFederationPlugin
+>[0];
 
 const config: ModuleFederationConfig = {
   name: 'products',
+  filename: 'remoteEntry.js',
   exposes: {
-    './RemoteButton': './src/components/remote-button.tsx',
     './Types': './src/types.d.ts',
+    './RemoteButton': './src/components/remote-button.tsx',
   },
-  shared: (libraryName, sharedConfig) => {
-    if (!sharedLibraries.includes(libraryName)) {
-      return false;
-    }
-  },
-};
 
+  shared: ['react', 'react-dom'],
+};
 export default config;

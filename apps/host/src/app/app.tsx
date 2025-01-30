@@ -1,4 +1,6 @@
 import useRemote from '../hooks/useRemote';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import RemoteButtonType from 'products/RemoteButton';
 
 export function App() {

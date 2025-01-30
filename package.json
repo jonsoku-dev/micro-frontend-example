@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {
     "@module-federation/enhanced": "^0.8.9",
+    "@module-federation/dts-plugin": "^0.8.9",
     "@module-federation/runtime": "^0.8.9",
     "react": "19.0.0",
     "react-dom": "19.0.0",
