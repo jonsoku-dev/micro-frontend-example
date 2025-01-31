@@ -7,10 +7,13 @@ type ModuleFederationConfig = ConstructorParameters<
 const config: ModuleFederationConfig = {
   name: 'cart',
   filename: 'remoteEntry.js',
-  experiments: {
-    federationRuntime: 'hoisted',
-    externalRuntime: true,
-  },
+  experiments:
+    process.env.NODE_ENV === 'development'
+      ? {}
+      : {
+          federationRuntime: 'hoisted',
+          externalRuntime: true,
+        },
   exposes: {
     './Types': './src/types.d.ts',
     './CartRouter': './src/app/cart-router.tsx',
