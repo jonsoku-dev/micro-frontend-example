@@ -1,2 +1,2 @@
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss' prefix(cl);
+@import 'tailwindcss/utilities' layer(utilities);

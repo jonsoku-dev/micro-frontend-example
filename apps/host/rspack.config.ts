@@ -15,11 +15,16 @@ export default composePlugins(withNx(), withReact(), (config, ctx) => {
     ...(config.resolve ?? {}),
     alias: {
       ...(config.resolve?.alias ?? {}),
-      '@custom-mfe/logger': path.resolve(ctx.context.root, 'dist/packages/logger'),
-      '@custom-mfe/store': path.resolve(ctx.context.root, 'dist/packages/store')
-    }
-  }
-
+      '@custom-mfe/logger': path.resolve(
+        ctx.context.root,
+        'dist/packages/logger'
+      ),
+      '@custom-mfe/store': path.resolve(
+        ctx.context.root,
+        'dist/packages/store'
+      ),
+    },
+  };
 
   return config;
 });

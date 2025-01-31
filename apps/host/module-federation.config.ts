@@ -13,11 +13,14 @@ const config: ModuleFederationConfig = {
     federationRuntime: 'hoisted',
     provideExternalRuntime: true,
   },
-  // remotes: [
-  //   {
-  //     products: 'products@http://localhost:4201/mf-manifest.json',
-  //   },
-  // ],
+  remotes: [
+    {
+      products: 'products@http://localhost:4201/mf-manifest.json',
+    },
+    {
+      cart: 'cart@http://localhost:4202/mf-manifest.json',
+    },
+  ],
   shared: {
     react: {
       singleton: true,

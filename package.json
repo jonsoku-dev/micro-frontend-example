@@ -17,6 +17,8 @@
     "@module-federation/dts-plugin": "^0.8.9",
     "@module-federation/enhanced": "^0.8.9",
     "@module-federation/runtime": "^0.8.9",
+    "@tailwindcss/postcss": "^4.0.1",
+    "@tailwindcss/vite": "^4.0.1",
     "@tanstack/react-query": "^5.65.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",

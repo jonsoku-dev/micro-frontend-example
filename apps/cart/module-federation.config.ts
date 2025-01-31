@@ -9,7 +9,7 @@ const config: ModuleFederationConfig = {
   filename: 'remoteEntry.js',
   experiments: {
     federationRuntime: 'hoisted',
-    externalRuntime: true
+    externalRuntime: true,
   },
   exposes: {
     './Types': './src/types.d.ts',
