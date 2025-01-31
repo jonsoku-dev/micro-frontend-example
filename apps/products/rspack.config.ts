@@ -15,6 +15,19 @@ module.exports = composePlugins(withNx(), withReact(), (config, ctx) => {
   config.devServer = {
     ...config.devServer,
     host: '127.0.0.1',
+    hot: true,
+    liveReload: false,
+    watchFiles: {
+      paths: ['src/**/*'],
+      options: {
+        usePolling: false,
+      },
+    },
+  };
+
+  config.optimization = {
+    ...config.optimization,
+    moduleIds: 'named',
   };
 
   return config;
