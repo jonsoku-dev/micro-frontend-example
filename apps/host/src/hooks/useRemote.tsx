@@ -9,7 +9,8 @@ export type RemoteDetails = {
 
 export async function loadRemoteFromService(scope: string) {
   const remoteMap: Record<string, string> = {
-    'products': 'http://localhost:4201/mf-manifest.json'
+    'products': 'http://localhost:4201/mf-manifest.json',
+    'cart': 'http://localhost:4202/mf-manifest.json'
   };
   return Promise.resolve(remoteMap[scope]);
 }

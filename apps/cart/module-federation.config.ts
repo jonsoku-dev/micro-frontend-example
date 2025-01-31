@@ -1,23 +1,21 @@
 import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack';
-import { resolve } from 'path';
 
 type ModuleFederationConfig = ConstructorParameters<
   typeof ModuleFederationPlugin
 >[0];
 
 const config: ModuleFederationConfig = {
-  name: 'host',
+  name: 'cart',
   filename: 'remoteEntry.js',
-  // https://module-federation.io/configure/experiments.html
   experiments: {
     federationRuntime: 'hoisted',
-    provideExternalRuntime: true,
+    externalRuntime: true
   },
-  // remotes: [
-  //   {
-  //     products: 'products@http://localhost:4201/mf-manifest.json',
-  //   },
-  // ],
+  exposes: {
+    './Types': './src/types.d.ts',
+    './CartRouter': './src/app/cart-router.tsx',
+    './CartPage': './src/app/cart-page.tsx',
+  },
   shared: {
     react: {
       singleton: true,
@@ -35,7 +33,6 @@ const config: ModuleFederationConfig = {
       singleton: true,
     },
   },
-  // runtimePlugins: [resolve(__dirname, './dynamic-remote.ts')],
 };
 
 export default config;
