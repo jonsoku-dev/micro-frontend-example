@@ -4,30 +4,54 @@ import { ModuleFederationPlugin } from '@module-federation/enhanced/rspack';
 import * as path from 'path';
 
 export default composePlugins(withNx(), withReact(), (config, ctx) => {
+  const isDevelopment = config.mode === 'development';
   config.plugins?.push(new ModuleFederationPlugin(mfConfig));
-
-  config.output = {
-    ...config.output,
-    publicPath: 'auto',
-  };
-
-  config.devServer = {
-    ...config.devServer,
-    host: '127.0.0.1',
-    hot: true,
-    liveReload: false, // HMR만 사용하고 전체 새로고침은 비활성화
-    watchFiles: {
-      paths: ['src/**/*'],
-      options: {
-        usePolling: false, // 파일 시스템 이벤트 사용
+  if (isDevelopment) {
+    // config.devServer = {
+    //   host: '127.0.0.1',
+    //   hot: true,
+    //   liveReload: false,
+    //   watchFiles: {
+    //     paths: ['src/**/*'],
+    //     options: {
+    //       usePolling: false,
+    //     },
+    //   },
+    // };
+    // config.optimization = {
+    //   ...config.optimization,
+    //   moduleIds: 'named',
+    //   chunkIds: 'named',
+    //   minimize: false,
+    // };
+  } else {
+    // Production 설정
+    config.optimization = {
+      ...config.optimization,
+      moduleIds: 'deterministic',
+      chunkIds: 'deterministic',
+      minimize: true,
+      splitChunks: {
+        chunks: 'all',
+        minSize: 20000,
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
+        cacheGroups: {
+          defaultVendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
+            reuseExistingChunk: true,
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
+        },
       },
-    },
-  };
-
-  config.optimization = {
-    ...config.optimization,
-    moduleIds: 'named', // 개발 시 모듈 ID를 더 안정적으로 유지
-  };
+    };
+  }
 
   config.resolve = {
     ...(config.resolve ?? {}),
